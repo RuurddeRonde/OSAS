@@ -9,6 +9,12 @@ workspace "OSAS"
 	
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "OSAS/vendor/GLFW/include"
+
+group "Dependencies"
+	include "OSAS/vendor/GLFW"
+
 project "OSAS"
 	location "OSAS"
 	kind "ConsoleApp"
@@ -25,7 +31,13 @@ project "OSAS"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/src"
+		"%{prj.name}/vendor/src",
+		"%{IncludeDir.GLFW}"
+	}
+	links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
