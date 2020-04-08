@@ -1,18 +1,17 @@
 
 #include <iostream>
-#include "Window.h"
+#include "UI/WindowManager.h"
 
 // settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
 
 int main()
 {
-    OSAS::UI::Window window(SCR_WIDTH, SCR_HEIGHT);
+    OSAS::UI::WindowManager ui;
 
-	while (!window.WindowShouldClose())
+	while (true)
 	{
-		window.Draw();
+		ui.Update();
+		ui.Render();
 	}
 
     return 0;

@@ -1,6 +1,7 @@
 #pragma once
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
+#include <memory>
 namespace OSAS
 {
 	namespace UI
@@ -15,9 +16,10 @@ namespace OSAS
 			int getWidth()const { return width; }
 			int getHeight()const { return height; }
 			void Resize(int width, int height);
+			GLFWwindow* getRawWindow();
 		private:
 			int width, height;
-			GLFWwindow* window;
+			std::unique_ptr<GLFWwindow> window;
 		};
 	}
 }
