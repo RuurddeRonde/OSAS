@@ -11,9 +11,14 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "OSAS/vendor/GLFW/include"
+IncludeDir["GLAD"] = "OSAS/vendor/GLAD"
+IncludeDir["glm"] = "OSAS/vendor/glm"
+IncludeDir["ImGui"] = "OSAS/vendor/imgui"
 
 group "Dependencies"
 	include "OSAS/vendor/GLFW"
+	include "OSAS/vendor/GLAD"
+	include "OSAS/vendor/imgui"
 
 project "OSAS"
 	location "OSAS"
@@ -26,18 +31,25 @@ project "OSAS"
 	files 
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
 
 	includedirs
 	{
 		"%{prj.name}/vendor/src",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.GLAD}",
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.ImGui}"	
 	}
 	links 
 	{ 
 		"GLFW",
-		"opengl32.lib"
+		"opengl32.lib",
+		"GLAD",
+		"ImGui"
 	}
 
 	filter "system:windows"
