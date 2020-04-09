@@ -47,9 +47,9 @@ project "OSAS"
 	links 
 	{ 
 		"GLFW",
-		"opengl32.lib",
 		"GLAD",
-		"ImGui"
+		"ImGui",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

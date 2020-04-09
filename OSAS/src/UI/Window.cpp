@@ -15,14 +15,14 @@ namespace OSAS
 			glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
 #endif
 
-			window = std::make_unique<GLFWwindow>(glfwCreateWindow(width, height, "OSAS", NULL, NULL));
+			window = glfwCreateWindow(width, height, "OSAS", NULL, NULL);
 			if (window == NULL)
 			{
 				std::cout << "Failed to create GLFW window" << std::endl;
 				glfwTerminate();
 				return;
 			}
-			glfwMakeContextCurrent(window.get());
+			glfwMakeContextCurrent(window);
 			//glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
 			if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -39,12 +39,12 @@ namespace OSAS
 			glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			glfwSwapBuffers(window.get());
+			glfwSwapBuffers(window);
 			glfwPollEvents();
 		}
 		bool Window::WindowShouldClose()const
 		{
-			return glfwWindowShouldClose(window.get());
+			return glfwWindowShouldClose(window);
 		}
 		void Window::Resize(int width, int height)
 		{
@@ -53,7 +53,7 @@ namespace OSAS
 
 		GLFWwindow* Window::getRawWindow()
 		{
-			return window.get();
+			return window;
 		}
 	}
 

@@ -19,7 +19,7 @@ namespace OSAS
 			GLFWwindow* getRawWindow();
 		private:
 			int width, height;
-			std::unique_ptr<GLFWwindow> window;
+			GLFWwindow* window;
 		};
 	}
 }
