@@ -7,13 +7,11 @@ namespace OSAS
 		class UIWindow
 		{
 		public:
-			UIWindow();
-			~UIWindow();
 			virtual void update() = 0;
 			void Show();
 			void Hide();
 			std::string GetName();
-		private:
+		protected:
 			bool showing;
 			std::string name;
 		};

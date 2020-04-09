@@ -4,14 +4,6 @@ namespace OSAS
 {
 	namespace UI
 	{
-		UIWindow::UIWindow()
-		{
-		}
-
-		UIWindow::~UIWindow()
-		{
-		}
-
 		void UIWindow::Show()
 		{
 			showing = true;
