@@ -21,7 +21,7 @@ namespace OSAS
 			ImGui_ImplGlfw_InitForOpenGL(mainWindow.getRawWindow(), true);
 			const char* glsl_version = "#version 410";
 			ImGui_ImplOpenGL3_Init(glsl_version);
-
+			setstyle();
 		}
 		WindowManager::~WindowManager()
 		{
@@ -34,6 +34,7 @@ namespace OSAS
 			ImGui_ImplOpenGL3_NewFrame();
 			ImGui_ImplGlfw_NewFrame();
 			ImGui::NewFrame();
+			ImGuiIO& io = ImGui::GetIO();
 			
 			bool show = true;
 			showDockSpace(&show);
@@ -42,10 +43,9 @@ namespace OSAS
 			{
 				windows[i]->update();
 			}
-
+			ImGui::ShowDemoWindow();
 			ImGui::Render();
 
-			ImGuiIO& io = ImGui::GetIO();
 			if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
 			{
 				GLFWwindow* backup_current_context = glfwGetCurrentContext();
