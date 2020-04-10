@@ -30,6 +30,12 @@ namespace OSAS {
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 			glBindVertexArray(0);
 		}
+		Mesh::~Mesh()
+		{
+			glDeleteVertexArrays(1, &VAO);
+			glDeleteBuffers(1, &VBO);
+			glDeleteBuffers(1, &EBO);
+		}
 		void Mesh::draw()
 		{
 			glBindVertexArray(VAO);
