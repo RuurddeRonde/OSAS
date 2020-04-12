@@ -14,11 +14,13 @@ IncludeDir["GLFW"] = "OSAS/vendor/GLFW/include"
 IncludeDir["GLAD"] = "OSAS/vendor/GLAD"
 IncludeDir["glm"] = "OSAS/vendor/glm"
 IncludeDir["ImGui"] = "OSAS/vendor/imgui"
+IncludeDir["assimp"] = "OSAS/vendor/assimp"
 
 group "Dependencies"
 	include "OSAS/vendor/GLFW"
 	include "OSAS/vendor/GLAD"
 	include "OSAS/vendor/imgui"
+	include "OSAS/vendor/assimp"
 
 project "OSAS"
 	location "OSAS"
@@ -42,13 +44,15 @@ project "OSAS"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.GLAD}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.ImGui}"	
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.assimp}"	
 	}
 	links 
 	{ 
 		"GLFW",
 		"GLAD",
 		"ImGui",
+		"assimp",
 		"opengl32.lib"
 	}
 

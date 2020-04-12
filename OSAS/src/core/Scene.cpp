@@ -1,11 +1,13 @@
 #include "Scene.h"
+#include "assimp\include\assimp\Importer.hpp"
 namespace OSAS
 {
 	namespace core
 	{
 		Scene::Scene()
 		{
-			
+			//Assimp::Importer;
+			//aiScene scene = import
 		}
 
 		Scene::~Scene()
