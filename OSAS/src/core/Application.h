@@ -8,11 +8,10 @@ namespace OSAS
 		class Application
 		{
 		public:
-			Application(std::string name);
+			Application();
 			~Application();
 		private:
-			Project project;
-			std::string name;
+			
 		};
 	}
 }

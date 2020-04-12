@@ -1,7 +1,7 @@
 
 #include <iostream>
-#include "UI/WindowManager.h"
-#include "UI/viewport.h"
+#include "../UI/WindowManager.h"
+#include "../UI/viewport.h"
 
 // settings
 
